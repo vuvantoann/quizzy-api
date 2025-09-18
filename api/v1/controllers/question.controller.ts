@@ -15,3 +15,22 @@ export const detail = async (req: Request, res: Response) => {
   })
   res.json(question)
 }
+
+//[GET]/api/v1/questions/:topicId
+export const QuestionsInTopic = async (req: Request, res: Response) => {
+  try {
+    const topicId: string = req.params.topicId
+
+    const questions = await Question.find({
+      topicId: topicId,
+    })
+
+    return res.json(questions)
+  } catch (error) {
+    console.error('Lỗi :', error)
+    return res.status(400).json({
+      code: 400,
+      message: 'Không tồn tại!',
+    })
+  }
+}

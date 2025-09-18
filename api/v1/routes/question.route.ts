@@ -7,4 +7,6 @@ router.get('/', controller.index)
 
 router.get('/detail/:id', controller.detail)
 
+router.get('/:topicId', controller.QuestionsInTopic)
+
 export const questionRoutes: Router = router

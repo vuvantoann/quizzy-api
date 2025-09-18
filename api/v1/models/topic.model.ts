@@ -2,8 +2,20 @@ import mongoose from 'mongoose'
 
 const topicSchema = new mongoose.Schema(
   {
-    name: String,
-
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    level: {
+      type: String,
+      enum: ['Dễ', 'Trung bình', 'Khó'],
+      default: 'Dễ',
+    },
+    questions: {
+      type: Number,
+      default: 0,
+    },
     status: {
       type: String,
       default: 'active',
@@ -12,7 +24,10 @@ const topicSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    deleteAt: Date,
+    deleteAt: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,
