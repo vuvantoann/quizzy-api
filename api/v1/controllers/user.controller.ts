@@ -98,3 +98,20 @@ export const login = async (req: Request, res: Response) => {
     })
   }
 }
+
+//[get]/api/v1/users/detail
+export const detail = async (req: Request, res: Response) => {
+  try {
+    res.json({
+      code: 200,
+      message: 'thành công',
+      infoUser: req['user'],
+    })
+  } catch (error) {
+    console.error('Lỗi changeStatus:', error)
+    return res.status(400).json({
+      code: 400,
+      message: 'Không tồn tại!',
+    })
+  }
+}
