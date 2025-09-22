@@ -7,6 +7,8 @@ router.get('/', controller.index)
 
 router.get('/detail/:id', controller.detail)
 
+router.get('/:userId', controller.AnswerByUser)
+
 router.post('/save', controller.saveAnswer)
 
 export const answerRoutes: Router = router

@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const answerSchema = new mongoose.Schema(
   {
-    examId: String,
+    topicId: String,
     userId: String,
     answers: [
       {

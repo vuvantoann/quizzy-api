@@ -26,6 +26,24 @@ export const detail = async (req: Request, res: Response) => {
   }
 }
 
+//[GET]/api/v1/answers/:userId
+export const AnswerByUser = async (req: Request, res: Response) => {
+  try {
+    const userId: string = req.params.userId
+
+    const answers = await Answer.find({
+      userId: userId,
+    })
+
+    return res.json(answers)
+  } catch (error) {
+    console.error('Lỗi :', error)
+    return res.status(400).json({
+      code: 400,
+      message: 'Không tồn tại!',
+    })
+  }
+}
 //[POST]/api/v1/answers/save
 export const saveAnswer = async (req: Request, res: Response) => {
   try {
